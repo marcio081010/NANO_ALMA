@@ -99,7 +99,7 @@ ESP32 GND
 
 
 
-![Texto alternativo](Circuit.jpg)
+![Texto alternativo](CIRCUITO NANO ALMA.jpg)
 
 ## 📏Hardware Modeling
 Hardware Modeling can be found on my Thingiverse via Link
