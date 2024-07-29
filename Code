@@ -1,0 +1,86 @@
+#include <WiFi.h>
+#include <DHT.h>
+#include <Servo.h>
+
+// Definições dos pinos
+#define DHTPIN 2  // Pino digital conectado ao DHT11
+#define DHTTYPE DHT11
+
+DHT dht(DHTPIN, DHTTYPE);
+
+// Pinos ADC para os LDRs
+const int LDR1 = 32;
+const int LDR2 = 33;
+const int LDR3 = 34;
+const int LDR4 = 35;
+
+// Pinos para os Servo Motores
+const int servoPin1 = 14;
+const int servoPin2 = 15;
+const int servoPin3 = 16;
+
+Servo servo1;
+Servo servo2;
+Servo servo3;
+
+// Credenciais Wi-Fi
+const char* ssid     = "YOUR_SSID";
+const char* password = "YOUR_PASSWORD";
+
+void setup() {
+  Serial.begin(115200);
+
+  // Inicializa o DHT11
+  dht.begin();
+
+  // Inicializa os Servos
+  servo1.attach(servoPin1);
+  servo2.attach(servoPin2);
+  servo3.attach(servoPin3);
+
+  // Conecta ao Wi-Fi
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.println("Connecting to WiFi...");
+  }
+  Serial.println("Connected to WiFi");
+}
+
+void loop() {
+  // Leitura dos LDRs
+  int ldr1Value = analogRead(LDR1);
+  int ldr2Value = analogRead(LDR2);
+  int ldr3Value = analogRead(LDR3);
+  int ldr4Value = analogRead(LDR4);
+
+  // Leitura do DHT11
+  float h = dht.readHumidity();
+  float t = dht.readTemperature();
+
+  // Verifica se houve erro na leitura
+  if (isnan(h) || isnan(t)) {
+    Serial.println("Failed to read from DHT sensor!");
+    return;
+  }
+
+  // Controle dos Servos baseado nos valores dos LDRs
+  int verticalPos1 = map(ldr1Value, 0, 4095, 0, 180);
+  int verticalPos2 = map(ldr2Value, 0, 4095, 0, 180);
+  int horizontalPos = map((ldr3Value + ldr4Value) / 2, 0, 4095, 0, 180);
+
+  servo1.write(verticalPos1);
+  servo2.write(verticalPos2);
+  servo3.write(horizontalPos);
+
+  // Envia os dados via Serial (ou via Wi-Fi conforme necessidade)
+  Serial.print("LDR1: "); Serial.println(ldr1Value);
+  Serial.print("LDR2: "); Serial.println(ldr2Value);
+  Serial.print("LDR3: "); Serial.println(ldr3Value);
+  Serial.print("LDR4: "); Serial.println(ldr4Value);
+  Serial.print("Humidity: "); Serial.print(h); Serial.println(" %");
+  Serial.print("Temperature: "); Serial.print(t); Serial.println(" *C");
+
+  // Aguarda antes da próxima leitura
+  delay(2000);
+}
