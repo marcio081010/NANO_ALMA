@@ -50,44 +50,61 @@
     J@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@Y 
 
 ## ❓What is?
-SOLAR BIRD is a project developed with a raspberry pi pico with the aim of storing solar energy and converting it into electrical energy for public lighting with the aim of minimizing public expenses, redirecting the amounts saved towards education or donations to charitable institutions.
+The Atacama Large Millimeter/submillimeter Array (ALMA) is a radio telescope located in the Atacama Desert in Chile. It is one of the most advanced astronomical observatories in the world, comprised of 66 high-precision antennas that work together to observe the universe at millimeter and submillimeter wavelengths.
 
 ## 🔧Components and Circuit
 
-📎 Raspberry Pi Pico: Microcontroller
+📎LDR sensors
+LDR1: ADC1 (GPIO 32)
+LDR2: ADC2 (GPIO 33)
+LDR3: ADC3 (GPIO 34)
+LDR4: ADC4 (GPIO 35)
 
-📎 LDR sensor (GP26): Light Dependent Resistor for light intensity detection
+📎DHT11 Humidity and Temperature Sensor
+VDC: +3.3V
+GND: GND
+DATA (OUT): GPIO 2
 
-📎 Servo motor (GP14): Motor for rotating to the direction with the highest light intensity
+📎Servo Motors
+Servo1 (Vertical):
+Signal: GPIO 14
+VCC: +5V
+GND: GND
+Servo2 (Vertical):
+Signal: GPIO 15
+VCC: +5V
+GND: GND
+Servo3 (Horizontal):
+Signal: GPIO 16
+VCC: +5V
+GND: GND
 
-📎 Relay SRD-05VDC-SL-C (GP15): Relay for switching the street lamp LED on and off
+📎Yagi antenna
+Connected to the RTL-SDR dongle, which is connected to the laptop/PC
 
-📎 LiPo battery (GP27): Lithium Polymer battery for energy storage
+📎Photovoltaic Cell (5V, 1A)
+VCC: Connected to the input of the voltage regulator module
+GND: Connected to GND of the voltage regulator module
 
-📎 Red LED (GP16): Indicates low or no charge
+📎Voltage Regulator Module
+Input: Connected to the output of the photovoltaic cell
+Exit:
+ESP32 VIN
+ESP32 GND
 
-📎 Yellow LED (GP17): Indicates moderate charge
+📎 Resistors
+4 x 10k ohms
 
-📎 Green LED (GP18): Indicates fully charged
 
-📎 Boost converter: Increases the voltage from the LiPo battery to the required level
 
-📎 Schottky diode: Provides efficient current flow and low forward voltage drop
 
-📎 Resistors:
-
-🔩 3 x 10k ohms: Used for limiting current in circuits
-
-🔩 2 x 68k ohms: Used for voltage division or current limiting
-
-🔩 1 x 22k ohms: Used for specific circuit requirements
 
 ![Texto alternativo](Circuit.jpg)
 
 ## 📏Hardware Modeling
 Hardware Modeling can be found on my Thingiverse via Link
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-https://www.thingiverse.com/thing:6691124
+XXX
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 💲good studies to all💲
