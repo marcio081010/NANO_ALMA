@@ -55,25 +55,33 @@ The Atacama Large Millimeter/submillimeter Array (ALMA) is a radio telescope loc
 ## 🔧Components and Circuit
 
 📎LDR sensors
+
 LDR1: ADC1 (GPIO 32)
+
 LDR2: ADC2 (GPIO 33)
+
 LDR3: ADC3 (GPIO 34)
+
 LDR4: ADC4 (GPIO 35)
 
 📎DHT11 Humidity and Temperature Sensor
+
 VDC: +3.3V
 GND: GND
 DATA (OUT): GPIO 2
 
 📎Servo Motors
+
 Servo1 (Vertical):
 Signal: GPIO 14
 VCC: +5V
 GND: GND
+
 Servo2 (Vertical):
 Signal: GPIO 15
 VCC: +5V
 GND: GND
+
 Servo3 (Horizontal):
 Signal: GPIO 16
 VCC: +5V
