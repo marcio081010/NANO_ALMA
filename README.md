@@ -111,7 +111,7 @@ ESP32 GND
 ## 📏Hardware Modeling
 Hardware Modeling can be found on my Thingiverse via Link
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-unavailable at the moment
+https://www.thingiverse.com/thing:6713365
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 💲good studies to all💲
